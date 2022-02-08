@@ -450,7 +450,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 50739768}
         m_TargetAssemblyTypeName: manageHilfedialog, Assembly-CSharp
-        m_MethodName: umtopfenErfolg
+        m_MethodName: setHappySmileyAndReturnToProfile
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4453,11 +4453,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7998f05be3719f74a8a4c1c558ffafad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fenster1: {fileID: 0}
-  Fenster21: {fileID: 0}
-  Fenster22: {fileID: 0}
-  Fenster23: {fileID: 0}
-  Fenster24: {fileID: 0}
+  Fenster1: {fileID: 24666428}
+  Fenster21: {fileID: 216621270}
+  Fenster22: {fileID: 2111349614}
+  Fenster23: {fileID: 974735557}
+  Fenster24: {fileID: 1505470946}
 --- !u!1 &729706004
 GameObject:
   m_ObjectHideFlags: 0
@@ -10939,11 +10939,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7998f05be3719f74a8a4c1c558ffafad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fenster1: {fileID: 0}
-  Fenster21: {fileID: 0}
-  Fenster22: {fileID: 0}
-  Fenster23: {fileID: 0}
-  Fenster24: {fileID: 0}
+  Fenster1: {fileID: 24666428}
+  Fenster21: {fileID: 216621270}
+  Fenster22: {fileID: 2111349614}
+  Fenster23: {fileID: 974735557}
+  Fenster24: {fileID: 1505470946}
 --- !u!1 &1878994236
 GameObject:
   m_ObjectHideFlags: 0
