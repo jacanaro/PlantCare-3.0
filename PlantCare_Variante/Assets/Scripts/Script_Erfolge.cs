@@ -26,43 +26,44 @@ public class Script_Erfolge : MonoBehaviour
     public int erf3Trigger = 10;
     public static int erf3Code = 0;
 
-    //Vierter Erfolg Spezifisch (Pflanze gerettet)
+    //Vierter Erfolg Spezifisch (Pflanze gerettet) !!!!!MUSS NOCH GEMACHT WERDEN!!!!!
     public static int erf4Count = 0;
-    public int erf4Trigger = 1;
+    public int erf4Trigger = 2;
     public static int erf4Code = 0;
 
-    //Fuenfter Erfolg Spezifisch (Pflanze umgetopft)
+    //Fünfter Erfolg Spezifisch (Pflanze umgetopft) !!!!!MUSS NOCH GEMACHT WERDEN!!!!!
     public static int erf5Count = 0;
-    public int erf5Trigger = 1;
+    public int erf5Trigger = 2;
     public static int erf5Code = 0;
 
+    /// <summary>
+    /// Checkt ob die jeweiligen counter gleich den Triggern sind, um einen Erfolg freizuschalten.
+    /// Stellt gleichzeitig sicher das Erfolge nicht doppelt getriggert werden können.
+    /// Wenn beide erfüllt, führt eine Coroutine durch, um den jeweiligen Erfolg anzuzeigen.
+    /// </summary>
     // Update is called once per frame
     void Update()
     {
         erf1Code = PlayerPrefs.GetInt("Erf1");
-        if(erf1Count >= erf1Trigger && erf1Code != 12345)
+        if (erf1Count >= erf1Trigger && erf1Code != 12345)
         {
             StartCoroutine(Trigger01Erf());
         }
-
         erf2Code = PlayerPrefs.GetInt("Erf2");
-        if(erf1Count >= erf2Trigger && erf2Code != 12345)
+        if (erf1Count >= erf2Trigger && erf2Code != 12345)
         {
             StartCoroutine(Trigger02Erf());
         }
-
         erf3Code = PlayerPrefs.GetInt("Erf3");
         if (erf1Count >= erf3Trigger && erf3Code != 12345)
         {
             StartCoroutine(Trigger03Erf());
         }
-
         erf4Code = PlayerPrefs.GetInt("Erf4");
         if (erf4Count == erf4Trigger && erf4Code != 12345)
         {
             StartCoroutine(Trigger04Erf());
         }
-
         erf5Code = PlayerPrefs.GetInt("Erf5");
         if (erf5Count == erf5Trigger && erf5Code != 12345)
         {

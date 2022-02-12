@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Script_Kalendar : MonoBehaviour
 {
     /// <summary>
-    /// Cell or slot in the calendar. All the information each day should now about itself
+    /// Zelle im Kalender. Jeder Tag sollte alle Informationen über sich enthalten.
     /// </summary>
     public class Day
     {
@@ -16,7 +16,7 @@ public class Script_Kalendar : MonoBehaviour
         public GameObject obj;
 
         /// <summary>
-        /// Constructor of Day
+        /// Konstruktor vom Tag
         /// </summary>
         public Day(int dayNum, Color dayColor, GameObject obj)
         {
@@ -27,7 +27,8 @@ public class Script_Kalendar : MonoBehaviour
         }
 
         /// <summary>
-        /// Call this when updating the color so that both the dayColor is updated, as well as the visual color on the screen
+        /// Wird aufgerufen, um die Farbe der Zelle zu aktualisieren
+        /// <param name="newColor">Jeweilige Farbe</param>
         /// </summary>
         public void UpdateColor(Color newColor)
         {
@@ -36,8 +37,8 @@ public class Script_Kalendar : MonoBehaviour
         }
 
         /// <summary>
-        /// When updating the day we decide whether we should show the dayNum based on the color of the day
-        /// This means the color should always be updated before the day is updated
+        /// Je nach Farbe eines Tages wird entschieden, ob dayNum gezeigt wird.
+        /// Das führt dazu, dass die Farbe vor dem Tag aktualisiert wird.
         /// </summary>
         public void UpdateDay(int newDayNum)
         {
@@ -53,31 +54,17 @@ public class Script_Kalendar : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// All the days in the month. After we make our first calendar we store these days in this list so we do not have to recreate them every time.
-    /// </summary>
+
     private List<Day> days = new List<Day>();
 
-    /// <summary>
-    /// Setup in editor since there will always be six weeks. 
-    /// Try to figure out why it must be six weeks even though at most there are only 31 days in a month
-    /// </summary>
     public Transform[] weeks;
 
-    /// <summary>
-    /// This is the text object that displays the current month and year
-    /// </summary>
     public Text MonthAndYear;
 
-    /// <summary>
-    /// this currDate is the date our Calendar is currently on. The year and month are based on the calendar, 
-    /// while the day itself is almost always just 1
-    /// If you have some option to select a day in the calendar, you would want the change this objects day value to the last selected day
-    /// </summary>
     public DateTime currDate = DateTime.Now;
 
     /// <summary>
-    /// In start we set the Calendar to the current date
+    /// Kalender wird auf das aktuelle Datum gestellt
     /// </summary>
     private void Start()
     {
@@ -85,7 +72,7 @@ public class Script_Kalendar : MonoBehaviour
     }
 
     /// <summary>
-    /// Anytime the Calendar is changed we call this to make sure we have the right days for the right month/year
+    /// Jedes mal wenn der Kalender geändert wird, dann wird diese Methode gerufen, um sicherzustellen, dass die richtigen Tage im richtigen Monat/Jahr vorhanden sind
     /// </summary>
     void UpdateCalendar(int year, int month)
     {
@@ -95,8 +82,10 @@ public class Script_Kalendar : MonoBehaviour
         int startDay = GetMonthStartDay(year, month);
         int endDay = GetTotalNumberOfDays(year, month);
 
-        ///Create the days
-        ///This only happens for our first Update Calendar when we have no Day objects therefore we must create them
+
+        ///Erstellt die Tage
+        ///Diese If-Methode führt nur beim kreeiren, des Kalenders aus, um die Tage zu erstellen.
+
         if (days.Count == 0)
         {
             for (int w = 0; w < 6; w++)
@@ -117,8 +106,8 @@ public class Script_Kalendar : MonoBehaviour
                 }
             }
         }
-        ///loop through days
-        ///Since we already have the days objects, we can just update them rather than creating new ones
+        ///Looped durch die Tage
+        ///Da wir schon die Day-Objekte haben, werden diese einfach geupdatet, statt neue zu erstellen
         else
         {
             for (int i = 0; i < 42; i++)
@@ -136,7 +125,7 @@ public class Script_Kalendar : MonoBehaviour
             }
         }
 
-        ///This just checks if today is on our calendar. If so, we highlight it in green
+        ///Wenn der heutige Tag im Kalender ist wird dieser grün markiert
         if (DateTime.Now.Year == year && DateTime.Now.Month == month)
         {
             days[(DateTime.Now.Day - 1) + startDay].UpdateColor(Color.green);
@@ -145,7 +134,9 @@ public class Script_Kalendar : MonoBehaviour
     }
 
     /// <summary>
-    /// This returns which day of the week the month is starting on
+    /// <return>Welcher Tag in der Woche ist der erste im Monat</return>
+    /// <param name="month">Jeweiliges Monat als Zahl</param>
+    /// <param name="year">Jeweiliges Jahr als Zahl</param>
     /// </summary>
     int GetMonthStartDay(int year, int month)
     {
@@ -156,7 +147,9 @@ public class Script_Kalendar : MonoBehaviour
     }
 
     /// <summary>
-    /// Gets the number of days in the given month.
+    /// <return>Ermittelt die Tage im jeweiligen Monat.</return>
+    /// <param name="month">Jeweiliges Monat als Zahl</param>
+    /// <param name="year">Jeweiliges Jahr als Zahl</param>
     /// </summary>
     int GetTotalNumberOfDays(int year, int month)
     {
@@ -164,8 +157,9 @@ public class Script_Kalendar : MonoBehaviour
     }
 
     /// <summary>
-    /// This either adds or subtracts one month from our currDate.
-    /// The arrows will use this function to switch to past or future months
+    /// Fügt einen Monat oder zieht einen Monat von currDate ab/hinzu.
+    /// Die Pfeile benutzen diese Funktion, um die Monate zu ändern
+    /// <param name="direction">int direction = Jeweiliger Pfeil </param>
     /// </summary>
     public void SwitchMonth(int direction)
     {

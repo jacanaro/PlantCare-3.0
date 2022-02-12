@@ -12,6 +12,10 @@ public class loadPlantInfo : MonoBehaviour
     private string pflanzenName = "unbekannt";
     private string generalInfo = "unbekannt";
 
+    /// <summary>
+    /// Die Methode sucht mit Hilfe der Pflanzen-ID aus den Playerprefs nach dem zugehörigen Pflanzennamen und den allgemeinen Infos zur Art
+    /// und speichert die Ergebnisse in den Playerprefs. Danach wird die Szene InfoPflanzenprofil geladen.
+    /// </summary>
     public void loadInfo(){
         int plantID=PlayerPrefs.GetInt("plantID");
 

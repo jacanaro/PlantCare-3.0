@@ -10,15 +10,17 @@ public class Script_Unlock : MonoBehaviour
     public GameObject LockScreen04;
     public GameObject LockScreen05;
 
+    /// <summary>
+    /// Überprüft ob der jeweilige Code für einen Erfolg nicht mehr 0 ist. Wenn das der Fall ist schaltet es das locked Overlay in der Szene aus.
+    /// </summary>
     // Update is called once per frame
     void Update()
     {
-        if(Script_Erfolge.erf1Code != 0)
+        if (Script_Erfolge.erf1Code != 0)
         {
             LockScreen01.SetActive(false);
         }
 
-        Debug.Log(Script_Erfolge.erf2Code);
         if (Script_Erfolge.erf2Code != 0)
         {
             LockScreen02.SetActive(false);

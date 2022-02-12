@@ -18,6 +18,10 @@ public class UpdatePlant : MonoBehaviour
     public Transform plantStageDropdown;
     public TMPro.TextMeshProUGUI responseText;
 
+    /// <summary>
+    /// Die Methode überschreibt die Werte Pflanzenstadium und Spitzname in der Datenbank mit den übergebenen Werten.
+    /// Der Spitzname wird nur überschrieben, wenn der übergebene Wert mindestens ein Zeichen enthält.
+    /// </summary>
     public void updatePlantvalues(){
         //get the selected index
         int menuIndex = plantStageDropdown.GetComponent<Dropdown> ().value;

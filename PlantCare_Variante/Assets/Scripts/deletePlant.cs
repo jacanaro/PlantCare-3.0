@@ -17,6 +17,9 @@ public class deletePlant : MonoBehaviour
     [SerializeField] private GameObject DeleteCheck;
     [SerializeField] private GameObject DeleteBtn;
 
+/// <summary>
+/// Die Methode löscht das Pflanzenobjekt auf der Datenbank, mit der Pflanzen-ID die aktuell in den Playerprefs gespeichert ist.
+/// </summary>
     public void deletePlantFromDB(){
         using (var connection = new SqliteConnection(dbName)) {
             connection.Open();
@@ -31,11 +34,16 @@ public class deletePlant : MonoBehaviour
         SceneManager.LoadScene("MeinePflanzen");
     }
 
+/// <summary>
+/// Die Methode setzt den Löschen-Button auf inaktiv und aktiviert den Löschen-Dialog. 
+/// </summary>
     public void turnOnDeleteCheck(){
         DeleteBtn.SetActive(false);
         DeleteCheck.SetActive(true);
     }
-
+/// <summary>
+/// Die Methode setzt den Löschen-Dialog auf inaktiv und den Löschen-Button auf aktiv
+/// </summary>
     public void dontDeletePlant(){
         DeleteBtn.SetActive(true);
         DeleteCheck.SetActive(false);

@@ -12,6 +12,9 @@ public GameObject HilfedialogTomate;
     public GameObject HilfedialogAloeVera;
     private string dbName = "URI=file:Plants.db";
 
+    /// <summary>
+    /// Die Methode zeigt den Hilfedialog der Pflanzenart an, die mit der in den Playerprefs gespeicherten Pflanzen-ID in der Datenbank gefunden wird.
+    /// </summary>
     void Start()
     {
         int plantID=PlayerPrefs.GetInt("plantID");

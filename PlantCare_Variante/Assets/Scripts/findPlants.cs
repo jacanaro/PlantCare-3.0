@@ -33,6 +33,10 @@ public class findPlants : MonoBehaviour {
 
     private int checkMatch;
 
+    /// <summary>
+    /// Die Methode sucht in der Datenbank nach Pflanzenarten deren Eigenschaften sich mit den übergebenen Parametern übereinstimmen,
+    /// und zeigt entweder die Ergebnisse oder eine Benachrichtigung darüber, das keine Ergebnisse gefunden wurden an. 
+    /// </summary>
     public void findPlant() {
         
         checkMatch = 0;
@@ -41,8 +45,6 @@ public class findPlants : MonoBehaviour {
         //loading.SetActive(true);
         match.SetActive(false);
         noMatch.SetActive(false);
-
-        Debug.Log("Suche gestartet");
 
         //checken was ausgewaehlt ist
         int indexLocation = locationDropdown.GetComponent<Dropdown>().value; //menuIndex

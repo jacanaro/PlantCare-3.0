@@ -12,6 +12,11 @@ public class managePlantModel : MonoBehaviour
     [SerializeField] private GameObject[] modelTextures = new GameObject[12];
     private string dbName = "URI=file:Plants.db";
 
+    /// <summary>
+    /// Die Methode bestimmt mit Hilfe der aktuellen Pflanzen-ID aus den Playerprefs die Werte Pflanzenstadium und Pflanzenname.
+    /// Anschließend werden diese Werte zusammen mit dem Playerpref "gesundheit" genutzt, um aus den übergebenen 3D-Modellen das richtige auszuwählen
+    /// und anzuzeigen.
+    /// </summary>
     void Start()
     {
         string plantname = "unbekannt";
@@ -40,8 +45,6 @@ public class managePlantModel : MonoBehaviour
 
             connection.Close();
         }
-
-        Debug.Log("plantname: "+ plantname+ " plantID: "+ plantID + " plantStage: " + plantStage + " gesundheit: "+ gesundheit);
 
         if(gesundheit.Equals("gut")){
             foreach (GameObject x in modelTextures)
