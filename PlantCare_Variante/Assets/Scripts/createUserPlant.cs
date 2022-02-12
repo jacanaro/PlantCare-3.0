@@ -29,6 +29,10 @@ public class createUserPlant : MonoBehaviour
     public Transform plantStageDropdown;
     public Text latNameText;
 
+/// <summary>
+/// Die Methode fügt ein neues Pflanzenobjekt mit den übergebenen Werten (Spitzname, Pflanzenstadium, Lateinischer Name) 
+/// und dem aktuellen Datum der Datenbank hinzu, falls der Lateinische Name unter den in der Datenbank gelisteten Pflanzenarten zu finden ist.
+/// </summary>
     public void addUsersPlant() {
         //get the selected index
         int menuIndex = plantStageDropdown.GetComponent<Dropdown> ().value;

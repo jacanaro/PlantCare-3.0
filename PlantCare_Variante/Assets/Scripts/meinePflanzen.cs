@@ -13,6 +13,11 @@ public class meinePflanzen : MonoBehaviour
     public Texture[] imageTextures = new Texture[3];
     private string dbName = "URI=file:Plants.db";
 
+    /// <summary>
+    /// Die Methode generiert mit Hilfe der Datenbank Buttons mit den Werten Pflanzen-ID, Name und Spitzname, 
+    /// sowie dem passenden Bild aller Pflanzenobjekte.
+    /// Wird ein Button geklickt, wird die Pflanzen-ID des Buttons in den Playerprefs vermerkt.
+    /// </summary>
     void Start()
     {
         //create the db connection

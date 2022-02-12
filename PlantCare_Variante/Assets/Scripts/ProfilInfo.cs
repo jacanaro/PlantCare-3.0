@@ -14,6 +14,10 @@ public class ProfilInfo : MonoBehaviour
     private int plantID;
     private string dbName = "URI=file:Plants.db";
 
+    /// <summary>
+    /// Die Methode lädt mit Hilfe der in den Playerprefs vermerkten Pflanzen-ID die folgenden Werte in die übergebenen Textfelder:
+    /// Lateinischer Name, deutscher Name, Spitzname und Schwierigkeitsgrad, sowie die errechneten, aktuellen Pflegetermine.
+    /// </summary>
     void Start() {
         plantID = PlayerPrefs.GetInt("plantID");
         DateTime dateOfPlantsCreation;
